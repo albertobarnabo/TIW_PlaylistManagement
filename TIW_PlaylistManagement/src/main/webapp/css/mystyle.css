@@ -1,0 +1,87 @@
+
+.boxed {
+    border: 1px solid black;
+}
+
+ 
+
+th.sortable, .up, .down {
+    cursor: pointer;
+    text-align: center;
+}
+ 
+.boldarrow{
+    color: red;
+    font-weight: bold;
+}
+
+ 
+
+.normalarrow{
+    color: black;
+    font-weight: normal;
+}
+
+ 
+
+.selected{
+    color: red;
+}
+
+
+.draggable_selected{
+		color: yellow;
+}
+
+.playlistselected{
+		background-color: yellow;
+}
+ 
+
+.notselected{
+    color: black;
+}
+
+ 
+
+body {
+    background-image: linear-gradient(#F5F5F5, #C0C0C0, #F5F5F5);
+    font-family: sans-serif;
+
+ 
+
+}
+
+ 
+
+.bold{
+    font-weight: bold;
+}
+
+ 
+
+#table_page{
+    width: 100%;
+    border: 1px solid black;
+}
+
+ 
+
+.content_cell{
+    text-align: center;
+}
+
+ 
+
+tr.playlistnotselected:hover {background-color: #f5f5f5;}
+
+
+
+
+
+
+
+
+
+
+

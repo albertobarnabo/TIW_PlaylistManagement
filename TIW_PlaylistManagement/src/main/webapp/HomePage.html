@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>HomePage</title>
+
+
+
+<script src="utils.js" charset="utf-8" defer></script>
+<script src="playlistManagement.js" charset="utf-8" defer></script>
+<script src="sort.js" charset="utf-8" defer></script>
+<script src="drag&drop.js" charset="utf-8" defer></script>
+
+<link rel="stylesheet" type="text/css" media="all" href="css/mystyle.css"/>
+	
+</head>
+
+<style>
+
+.boxed {
+	border: 1px solid black;
+}
+
+th.sortable, .up, .down {
+	cursor: pointer;
+}
+ 
+.boldarrow{
+	color: red;
+	font-weight: bold;
+}
+
+.normalarrow{
+	color: black;
+	font-weight: normal;
+}
+
+.selected{
+	color: red;
+}
+
+.notselected{
+	color: black;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+</style>
+		
+<body>
+
+
+	<div align="right">
+		<a href="Logout"><button>Logout</button></a>	
+	</div>
+	
+	<div>
+		<h1 class="firstTitle">Welcome to the Playlist Management Home Page</h1>
+	</div>
+	
+	<p>Nice to see you again <span id="id_username"></span></p>
+	
+	<div id="id_no_playlist_alert" class="alertmessage"></div>	
+
+
+	<table id="table_page">
+		<tr>
+			<td><table id="id_playliststable" class="boxed">
+				<thead>
+					<tr>
+						<th id="sortbyname" class="sortable">PlaylistName
+						<span> &uarr;</span>
+						<span> &darr;</span></th>
+						<th id="sortbydate" class="sortable">Date
+						<span> &uarr;</span>
+						<span> &darr;</span></th>
+						<th>Link</th>
+					</tr>
+				</thead>
+				<tbody id="id_playlistcontainerbody">  </tbody>
+			</table></td>
+			
+			<td> <!-- HERE GOES THE PLAYLIST PAGE -->
+				
+				<div id="id_no_song_alert" class="alertmessage"></div>
+				<div id="id_playlistTitle"></div>
+				<table class="boxed">
+					<thead id="id_songs_table">
+						
+					</thead>
+					<tbody>
+						<tr>	
+							<td><input type="button"  id="id_previousbutton" value="Previous"/></td>
+							<td><input type="button"  id="id_sortbutton" value="Sort"/></td>
+							<td><input type="button"  id="id_nextbutton" value="Next"/></td>		 
+						</tr>
+						<tr>
+							<td>
+								<p class="subtitle">Complete this form to add a Song to this playlist</p>
+								
+								<form id="id_addsongform" action="#" method="POST" enctype="multipart/form-data">
+									<fieldset>
+										<p>
+											<input id= "hiddeninput" type="hidden" name="playlistId">
+										</p>
+										<p>
+											<label>Choose a Song to add: </label> 
+																				
+											<select name="songId" id="id_orphansongs"> </select>																																
+										</p>
+						
+										<input type="button" class="submit" name="submit" value="Add song to this playlist">
+										
+									</fieldset>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+		
+			<td>
+				<p class="subtitle">Complete the form to create a playlist</p>
+		
+					<form id="id_playlistcreationform" action="#">
+						<fieldset>
+							<p>
+							Playlist Name: <input name="playlistName" type="text" required />
+							</p>
+							<input type="button" name="submit" class="submit" value="Create Playlist">
+						</fieldset>
+					</form>
+			</td>
+			
+			<td> <!-- HERE GOES THE OLD PLAYER PAGE -->
+				
+				<h1 id="id_songtitle"></h1>	
+	    
+				<img id="id_songimage" height="300" width="300" ></img>
+		
+				<div>
+					<p id="id_genre" class="bold"> <b>Genre:</b> </p>					
+					<p id="id_artist" class="bold"> <b>Artist:</b> </p> 
+					<p id="id_albumtitle" class="bold"> <b>Album Title:</b> </p>
+					<p id="id_publicationyear" class="bold"> <b>Publication Year:</b> </p>
+				</div>
+			
+				<div>
+					<audio id="id_audioplayer" controls="controls" id="id_audioplayer">	</audio>
+				</div>
+				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p class="subtitle">Complete the form to create a Song</p>
+					<form id="id_creationsongform" action="#" method="POST" enctype="multipart/form-data" >
+						<fieldset>
+							<p>
+								Song Title: <input type="text" name="songTitle" required />
+							</p>
+							<p>
+								Album Title: <input type="text" name="albumTitle" required />
+							</p>
+							<p>
+								Artist Name: <input type="text" name="artistName" required />
+							</p>
+							<p>
+								Publication Year: <input type="text" name="publicationYear" required />
+							</p>
+							<p>
+								<label>Choose a Genre:</label> 
+								
+								<select name="genre" id="genre_select"> </select>
+																								
+							</p>
+							<p> 
+								Upload Image File:
+								<input type="file" name="imageFile" required />
+								<br/>
+							
+							</p>
+							<p> 
+								Upload Song File:
+								<input type="file" name="songFile" required/>
+								<br/>
+								
+							</p>
+						<input type="button" name="submit" class="submit" value="Create Song">
+					</fieldset>
+				</form>
+			</td>
+			<td>
+				<table id="id_ddsong" class="boxed" >
+					<thead>
+						<tr>
+							<th>Title
+								
+							<th>Artist				
+						</tr>
+					</thead>
+					<tbody id="id_dd_containerbody">
+					</tbody>				
+				</table>
+				<div>
+					<input id="id_savesort" type="button" name="submit" class="submit" value="Save Sort">
+				</div>
+			</td>
+		</tr>
+	</table>
+		
+</body>
+</html>

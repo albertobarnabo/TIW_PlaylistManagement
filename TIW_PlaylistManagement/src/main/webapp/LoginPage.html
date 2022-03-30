@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="ISO-8859-1">
+
+<title>Login page</title>
+
+<script src="utils.js" charset="utf-8" defer></script>
+<script src="loginManagement.js" charset="utf-8" defer></script>
+
+
+</head>
+
+<style>   
+Body {  
+  font-family: sans-serif;   
+  background-image: linear-gradient(#F5F5F5, #C0C0C0, #F5F5F5);
+}  
+button {   
+       background-color: DarkCyan;   
+       width: 100%;  
+        color: black;   
+        padding: 15px;   
+        margin: 10px 0px;   
+        border: none;   
+        cursor: pointer;   
+        font-size:24px;
+         }   
+ form {   
+        border: 3px solid #f1f1f1;   
+    }   
+ input[type=text], input[type=password] {   
+        width: 100%;   
+        margin: 8px 0;  
+        padding: 12px 20px;   
+        display: inline-block;   
+        border: 2px solid DarkSlateGrey;   
+        box-sizing: border-box;   
+    }  
+ button:hover {   
+        opacity: 0.7;   
+    }   
+  .cancelbtn {   
+        width: auto;   
+        padding: 10px 18px;  
+        margin: 10px 5px;  
+    }   
+        
+     
+ .container {   
+        padding: 25px;   
+        background-color: LightSteelBlue ;
+        width: 50%;
+        margin-left: 25%;
+        border: 2px solid DarkSlateGrey;
+    }   
+</style>   
+</head>    
+<body>    
+    <h1 align="center"> Playlist Management Login Form </h1>  
+    <form action="CheckLogin" method="POST">  
+        <div class="container">   
+            	<label><b>Username: </b></label>   
+            <input type="text" placeholder="Enter Username" name="username" required>  
+            	<label><b>Password: </b></label>   
+            <input  type="password" placeholder="Enter Password" name="pwd" required>  
+            <button id="loginbutton" type="submit" value="login">Login</button>   
+    		<p th:text=" ${errorMsg}"></p>
+        </div>   
+    </form>     
+</body>     
+
+
+</html>
